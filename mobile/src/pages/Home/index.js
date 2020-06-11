@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { View } from "react-native";
 import * as Location from "expo-location";
 import { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import Constants from "expo-constants";
 import { AppLoading } from "expo";
+import 'dotenv';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import {
@@ -19,7 +19,7 @@ import Details from '../../components/Details'
 import marker from "../../assets/marker.png";
 
 const Home = () => {
-  const GOOGLE_API_KEY = "AIzaSyBMGfzFVjL6sTctyFTr0qdKTN1ED5XDKVc";
+  const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
   const [initialPosition, setInitialPosition] = useState(null);
   const [searchFocused, setSearchFocused] = useState(false);
