@@ -1,20 +1,15 @@
 import styled from "styled-components/native";
 
-export const DestinationContainer = styled.View`
-  height: 50%;
-  width: 100%;
-  flex-direction: column;
+export const Header = styled.View`
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  position: absolute;
-  bottom: 0;
-  border-top-width: 1px;
-  border-top-color: #ddd;
-  background-color: #fff;
+  justify-content: center;
+  width: 100%;
 `;
 
 export const Orientation = styled.Text`
   margin: 15px 0;
+  text-align: center;
 `;
 
 export const UberXContainer = styled.TouchableOpacity`

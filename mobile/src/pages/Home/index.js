@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import * as Location from "expo-location";
 import { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 import Constants from "expo-constants";
 import { AppLoading } from "expo";
-import 'dotenv';
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 import {
@@ -13,13 +12,14 @@ import {
   SearchBar,
   SearchContainer
 } from "./styles";
+import { Feather as Icon} from '@expo/vector-icons'
 
 import Details from '../../components/Details'
 
 import marker from "../../assets/marker.png";
 
 const Home = () => {
-  const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+  const GOOGLE_API_KEY = 'AIzaSyBMGfzFVjL6sTctyFTr0qdKTN1ED5XDKVc';
 
   const [initialPosition, setInitialPosition] = useState(null);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -34,6 +34,10 @@ const Home = () => {
     console.log(data.structured_formatting.main_text, "destino");
   }
 
+  function clearDestination() {
+    setDestination(null);
+    setDirectionReady(false);
+  }
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
@@ -60,6 +64,7 @@ const Home = () => {
           }}
           showsUserLocation
           loadingEnabled
+          
         >
           {destination && (
             <Marker
@@ -112,7 +117,15 @@ const Home = () => {
         </SearchContainer>
         }
        { directionReady &&
-         <Details />
+         <Details>
+           <Icon 
+           name="arrow-left" 
+           color="#000" 
+           size={26} 
+           style={{ position: 'absolute', left: 10}} 
+           onPress={clearDestination}
+           />
+         </Details>
         }
       </Container>
     );
