@@ -1,6 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
-import Home from "./src/pages/Home";
+import Routes from "./src/routes";
 
 import { AppLoading } from "expo";
 
@@ -17,8 +16,6 @@ export default function App() {
     return <AppLoading />;
   }
   return (
-    <View>
-      <Home />
-    </View>
+    <Routes />
   );
 }

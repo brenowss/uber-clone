@@ -14,7 +14,7 @@ import {
 } from "./styles";
 import { Feather as Icon} from '@expo/vector-icons'
 
-import Details from '../../components/Details'
+import Details from '../../components/Details';
 
 import marker from "../../assets/marker.png";
 
@@ -42,7 +42,7 @@ const Home = () => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
       if (status !== "granted") {
-        Alert("Permission to access location was denied");
+        Alert("Precisamos da sua permissão de localização para funcionar");
       }
 
       const {
@@ -64,7 +64,6 @@ const Home = () => {
           }}
           showsUserLocation
           loadingEnabled
-          
         >
           {destination && (
             <Marker
