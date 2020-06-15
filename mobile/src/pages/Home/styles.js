@@ -38,6 +38,7 @@ export const SearchBar = {
     marginTop: 0,
     marginLeft: 0,
     marginRight: 0,
+    marginBottom: 0,
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.1,
@@ -57,13 +58,12 @@ export const SearchBar = {
     shadowOpacity: 0.1,
     shadowOffset: { x: 0, y: 0 },
     shadowRadius: 15,
-    marginTop: 10,
   },
   description: {
     fontSize: 16,
   },
   row: {
-    padding: 20,
+    alignItems: 'center',
     height: 58,
   },
 };
